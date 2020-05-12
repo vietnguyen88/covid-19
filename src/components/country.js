@@ -36,6 +36,7 @@ const Country = () => {
         fetchCountries()
     }, [setcountries])
 
+
     // ---------------------------------------------
 
     function escapeRegexCharacters(str) {
@@ -64,7 +65,6 @@ const Country = () => {
         );
     }
 
-
     const onChange = (event, { newValue, method }) => {
         setselectedCountry(newValue)
     };
@@ -82,6 +82,7 @@ const Country = () => {
 
     return (
         <div className='country'>
+            <h2>Summary by Country</h2>
             <Autosuggest
                 suggestions={suggestions}
                 onSuggestionSelected={(event, { suggestionValue }) => {
@@ -97,12 +98,11 @@ const Country = () => {
                     type: "search",
                     placeholder: "Enter country"
                 }} />
-            <h2>{selectedCountry}</h2>
             <div className='country-chart' style={{ marginTop: '.5rem', padding: '.5rem 0 1.5rem 0' }}>
                 {Object.entries(country).length === 0
                     ? 'Please select a country'
                     : <Pie data={{
-                        labels: ['infected', 'deaths', 'recovered'],
+                        labels: ['Infected', 'Deaths', 'Recovered'],
                         datasets: [{
                             data: [country.confirmed.value, country.deaths.value, country.recovered.value],
                             backgroundColor: [

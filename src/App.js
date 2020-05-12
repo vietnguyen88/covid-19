@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './icons/bacteria (1).svg';
+import logo from './icons/bacteria.svg';
 import './App.css';
 // import CountUp from 'react-countup';
 import Chart from './components/chart'
@@ -44,16 +44,16 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <main>
+      <section className='summary' >
         <Card style={`card confirmed`} number={allAPI.confirmed} time={allAPI.lastUpdate} />
         <Card style={`card deaths`} number={allAPI.deaths} time={allAPI.lastUpdate} />
         <Card style={`card recovered`} number={allAPI.recovered} time={allAPI.lastUpdate} />
-      </main>
-      <section>
-        <Country />
       </section>
       <section>
         <Chart />
+      </section>
+      <section>
+        <Country />
       </section>
     </div>
   );
